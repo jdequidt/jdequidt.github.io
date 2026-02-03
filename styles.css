@@ -190,10 +190,12 @@ div,
     "lower lower";
   grid-template-columns: 240px 1fr;
   gap: 20px;
-  width: 92% !important;
+  width: 100% !important;
   max-width: 1000px;
   margin-left: auto !important;
   margin-right: auto !important;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #header { grid-area: header; }
@@ -209,8 +211,15 @@ div,
 div.section { width: auto !important; }
 
 @media (max-width: 899px) {
+  body { font-size: 14px; }
+  p { font-size: 14px; }
+  .meta,
+  .meta-italic,
+  .abstract { font-size: 12px; }
   #central {
-    width: 94% !important;
+    width: 100% !important;
+    padding-left: 12px;
+    padding-right: 12px;
     grid-template-areas:
       "header"
       "nav"
@@ -224,7 +233,7 @@ div.section { width: auto !important; }
     width: auto !important;
   }
   #navigation {
-    width: 240px !important;
+    width: min(240px, 100%) !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
