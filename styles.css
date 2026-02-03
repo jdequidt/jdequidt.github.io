@@ -211,11 +211,12 @@ div,
 div.section { width: auto !important; }
 
 @media (max-width: 899px) {
-  body { font-size: 14px; }
-  p { font-size: 14px; }
+  body { font-size: 16px; }
+  p { font-size: 16px; }
+  .paper-title { font-size: 16px; }
   .meta,
   .meta-italic,
-  .abstract { font-size: 12px; }
+  .abstract { font-size: 14px; }
   #central {
     width: 100% !important;
     padding-left: 12px;
