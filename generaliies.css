@@ -52,7 +52,8 @@ div   {position:relative;
 
 div#central {width:775px;
          margin-left: auto;
-	margin-right: auto;}
+	margin-right: auto;
+        background-color:#ffffff;}
 	
 div#header  {border-bottom: 1px solid #bbbbbb;
           overflow:auto;
@@ -115,6 +116,56 @@ div.navinfo a {color:#000000;}
 
 div.navinfo a:hover {color: #dd6600; }
 
+.header-text {float:left;}
+
+.site-title {
+        font-family: 'Open Sans', sans-serif;
+        font-size:24px;
+        font-weight:300;
+        font-stretch: normal;
+        font-style:normal;
+        font-variant:normal;
+        padding-left:2px;
+        padding-top:0px;
+        margin-bottom:0px;
+}
+
+.site-subtitle {
+        font-family: 'Open Sans', sans-serif;
+        font-size:16px;
+        font-weight:300;
+        color:#004488;
+        padding-left:20px;
+}
+
+.nav-image {margin:3px;}
+
+.paper-title {font-weight:600;}
+
+.meta-italic {
+        padding-left:30px;
+        padding-bottom:0px;
+        margin-top:-3px;
+        font-size:11px;
+        font-style:italic;
+}
+
+.meta {
+        padding-left:30px;
+        padding-bottom:10px;
+        margin-top:-3px;
+        font-size:11px;
+}
+
+.abstract {
+        padding-left:30px;
+        padding-bottom:10px;
+        margin-top:0px;
+        font-size:11px;
+}
+
+.footer-right {float:right;}
+.footer-note {font-size:10px;}
+
 .hidden { display: none; }
 .unhidden { display: block; }
-
