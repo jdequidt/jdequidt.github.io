@@ -9,15 +9,20 @@
 <title>Jonathan de Quidt</title>
 
 <script type="text/javascript">
-  function unhide(divID) {
+  function unhide(divID, trigger) {
     var item = document.getElementById(divID);
     if (item) {
-      item.className=(item.className=='hidden')?'unhidden':'hidden';
+      var isHidden = item.className == 'hidden';
+      item.className = isHidden ? 'unhidden' : 'hidden';
+      item.setAttribute('aria-hidden', isHidden ? 'false' : 'true');
+      if (trigger) {
+        trigger.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+      }
     }
   }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&amp;display=swap" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 </head>
@@ -41,7 +46,7 @@
 <div id="navigation"  >
 
 <div class="nav-image">
-<img src="images/pic4.jpeg" width=180>
+<img src="images/pic4.jpeg" width="180" alt="Jonathan de Quidt">
 </div>
 
 <div class="navtitle"><a href="pdfs/deQuidtCV.pdf" target="_blank">Curriculum Vitae</a></div>
@@ -71,7 +76,7 @@
 <p class="paper-title">Borrowing Constraints and Demand for Remedial Education: Evidence from Tanzania</p>
 <p class="meta-italic">Economic Journal, 2024</p>
 <p class="meta">
-<a href="javascript:unhide('DEMEDabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('DEMEDabstract', this);" aria-controls="DEMEDabstract" aria-expanded="false">[Abstract]</button>
 
 <a href="https://doi.org/10.1093/ej/ueae024">[Published version (open access)]</a>
 <a href="pdfs/DemandForEducation.pdf">[Ungated version]</a>
@@ -80,7 +85,7 @@ with <a href="http://perseus.iies.su.se/~kburc/" target="_blank">Konrad Burchard
 <a href="https://sites.google.com/view/selimgulesci/" target="_blank">Selim Gulesci</a>, and Munshi Sulaiman
 </p>
 
-    <div id="DEMEDabstract" class="hidden">
+    <div id="DEMEDabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 We use a cash transfer to relax households' borrowing constraints, then elicit their willingness to pay (WTP) for a remedial education program offering tutoring and life-skills training. Lottery losers were willing to pay 3,300 Tanzanian Shillings for the program, seven percent of per-capita monthly expenditures. For those identified at baseline as able to borrow, WTP increases by three percent upon winning a lottery prize of 3,200 TSh. For those unable to borrow, WTP increases by 27 percent upon winning the lottery. We conclude that borrowing constraints limit access to educational programs, and may increase inequality of educational attainment.
     </p>
@@ -89,7 +94,7 @@ We use a cash transfer to relax households' borrowing constraints, then elicit t
 <p class="paper-title">Testing Willingness to Pay Elicitation Mechanisms in the Field: Evidence from Uganda</p>
 <p class="meta-italic">Journal of Development Economics (short paper), 2021</p>
 <p class="meta">
-<a href="javascript:unhide('WTPabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('WTPabstract', this);" aria-controls="WTPabstract" aria-expanded="false">[Abstract]</button>
 <a href="https://doi.org/10.1016/j.jdeveco.2021.102701">[Published version (open access)]</a>
 <a href="http://perseus.iies.su.se/~kburc/research/WTPImplementations.pdf">[Ungated version]</a>
 <br>
@@ -99,7 +104,7 @@ with <a href="http://perseus.iies.su.se/~kburc/" target="_blank">Konrad Burchard
 <a href="https://www.tripodistefano.com/" target="_blank">Stefano Tripodi</a>
 </p>
 
-    <div id="WTPabstract" class="hidden">
+    <div id="WTPabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 Researchers frequently use variants of the Becker-DeGroot-Marschak (BDM) mechanism to elicit willingness to pay (WTP). These variants involve numerous incentive-irrelevant design choices, some of which carry advantages for implementation but may deteriorate participant comprehension or trust in the mechanism, which are well-known problems with the BDM. We highlight three such features and test them in the field in rural Uganda, a relevant population for many recent applications. Comprehension is very high, and 86 percent of participants bid optimally for an induced-value voucher, with little variation across treatments. This gives confidence for similar applications, and suggests the comprehension-expediency trade-off is mild.
     </p>
@@ -108,14 +113,14 @@ Researchers frequently use variants of the Becker-DeGroot-Marschak (BDM) mechani
 <p class="paper-title">Measuring and Bounding Experimenter Demand</p>
 <p class="meta-italic">American Economic Review, 2018</p>
 <p class="meta">
-<a href="javascript:unhide('demandabstract');">[Abstract]</a>
-<a href="https://www.aeaweb.org/articles?id=10.1257/aer.20171330&&from=f">[Published version]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('demandabstract', this);" aria-controls="demandabstract" aria-expanded="false">[Abstract]</button>
+<a href="https://www.aeaweb.org/articles?id=10.1257/aer.20171330&amp;&amp;from=f">[Published version]</a>
 <a href="pdfs/deQuidt_Haushofer_Roth_demand_final.pdf" target="_blank">[Ungated version]</a>
 <br>
 with <a href="https://johanneshaushofer.com/" target="_blank">Johannes Haushofer</a> and <a href="https://sites.google.com/site/chrisrotheconomics/home" target="_blank">Chris Roth</a>
 </p>
 
-    <div id="demandabstract" class="hidden">
+    <div id="demandabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 We propose a technique for assessing robustness to demand effects of findings from experiments and surveys. The core idea is that by deliberately inducing demand in a structured way we can bound its influence. We present a model in which participants respond to their beliefs about the researcher's objectives. Bounds are obtained by manipulating those beliefs with "demand treatments." We apply the method to eleven classic tasks, and estimate bounds averaging 0.13 standard deviations, suggesting that typical demand effects are probably modest. We also show how to compute demand-robust treatment effects and how to structurally estimate the model.
     </p>
@@ -125,14 +130,14 @@ We propose a technique for assessing robustness to demand effects of findings fr
 <p class="meta-italic">Journal of Development Economics, 2018</p>
 <p class="meta">
 
-<a href="javascript:unhide('commercializationdeclineabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('commercializationdeclineabstract', this);" aria-controls="commercializationdeclineabstract" aria-expanded="false">[Abstract]</button>
 
 <a href="https://www.sciencedirect.com/science/article/pii/S0304387818304632" target="_blank">[Published version]</a> <a href="pdfs/commercializationdecline.pdf" target="_blank">[Ungated version]</a>
 
 <br>
 with <a href="http://www.trfetzer.com" target="_blank">Thiemo Fetzer</a> and <a href="http://personal.lse.ac.uk/ghatak/" target="_blank">Maitreesh Ghatak</a></p>
 
-    <div id="commercializationdeclineabstract" class="hidden">
+    <div id="commercializationdeclineabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
     Numerous authors point to a decline in joint liability
 microcredit, and rise in individual liability lending. But empirical
@@ -150,14 +155,14 @@ test the model's key predictions, and find support for them in the data.
 
 <p class="meta">
 
-<a href="javascript:unhide('marketstructureabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('marketstructureabstract', this);" aria-controls="marketstructureabstract" aria-expanded="false">[Abstract]</button>
 <a href="https://doi.org/10.1111/ecoj.12591" target="_blank">[Published version]</a>
 <a href="pdfs/Monopoly.pdf" target="_blank">[Ungated version]</a>
 
 <br>
 with <a href="http://www.trfetzer.com" target="_blank">Thiemo Fetzer</a> and <a href="http://personal.lse.ac.uk/ghatak/" target="_blank">Maitreesh Ghatak</a> </p>
 
-    <div id="marketstructureabstract" class="hidden">
+    <div id="marketstructureabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
     Motivated by recent controversies surrounding the role of commercial lenders in
 microfinance, and calls for regulation of the sector, we analyze borrower welfare under different market structures, considering a benevolent non-profit lender, a
@@ -174,13 +179,13 @@ that market power can have severe implications for borrower welfare, while despi
 
 <p class="meta">
 
-<a href="javascript:unhide('yourlossabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('yourlossabstract', this);" aria-controls="yourlossabstract" aria-expanded="false">[Abstract]</button>
 <a href="https://doi.org/10.1093/jeea/jvx016" target="_blank">[Published version]</a>
 <a href="pdfs/dequidt_framedincentives.pdf" target="_blank">[Ungated version]</a>
 
 </p>
 
-<div id="yourlossabstract" class="hidden">
+<div id="yourlossabstract" class="hidden" aria-hidden="true">
 <p class="abstract">
 As predicted by loss aversion, numerous studies find that penalties elicit greater effort than bonuses, even when the underlying payoffs are identical. However, loss aversion also predicts that workers will demand higher wages to accept penalty contracts. In six experiments I recruited workers online under framed incentive contracts to test the second prediction. None find evidence for the predicted distaste for penalty contracts. In four experiments penalty framing actually increased the job offer acceptance rate relative to bonus framing. I rule out a number of explanations, most notably self-commitment motives do not seem to explain the finding. Two experiments that manipulate salience are successful at eliminating the effect, but do not significantly reverse it. Overall, loss aversion seems to play surprisingly little role in this setting. The results also highlight the importance of behavioral biases for infrequent, binding decisions such as contract take-up.
 </p>
@@ -191,15 +196,15 @@ As predicted by loss aversion, numerous studies find that penalties elicit great
 <p class="meta-italic">Journal of the Economic Science Association, 2017</p>
 
 <p class="meta">
-<a href="javascript:unhide('bonuspenaltyrobustabstract');">[Abstract]</a>
-<a href="https://link.springer.com/article/10.1007%2Fs40881-017-0039-9" target="_blank">[Published version]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('bonuspenaltyrobustabstract', this);" aria-controls="bonuspenaltyrobustabstract" aria-expanded="false">[Abstract]</button>
+<a href="https://link.springer.com/article/10.1007/s40881-017-0039-9" target="_blank">[Published version]</a>
 <a href="pdfs/DFKNQ 24 8 2017.pdf" target="_blank">[Ungated version]</a>
 
 <br>
-with <a href="https://sites.google.com/site/francescofallucchi/" target="_blank">Francesco Fallucchi</a>, <a href="http://felixkoelle.weebly.com" target="_blank">Felix K&#246lle</a>, <a href="https://sites.google.com/site/danielenosenzoeconomics/" target="_blank">Daniele Nosenzo</a> and <a href="https://www.sites.google.com/site/simonequercia/" target="_blank">Simone Quercia</a>
+with <a href="https://sites.google.com/site/francescofallucchi/" target="_blank">Francesco Fallucchi</a>, <a href="http://felixkoelle.weebly.com" target="_blank">Felix K&#246;lle</a>, <a href="https://sites.google.com/site/danielenosenzoeconomics/" target="_blank">Daniele Nosenzo</a> and <a href="https://www.sites.google.com/site/simonequercia/" target="_blank">Simone Quercia</a>
 </p>
 
-    <div id="bonuspenaltyrobustabstract" class="hidden">
+    <div id="bonuspenaltyrobustabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 We study the relative effectiveness of contracts that are framed either in terms of bonuses or penalties. In one set of treatments subjects know at the time of effort provision whether they have achieved the bonus / avoided the penalty. In another set of treatments subjects only learn the success of their performance at the end of the task. We fail to observe a contract framing effect in either condition: effort provision is statistically indistinguishable under bonus and penalty contracts.
     </p>
@@ -209,14 +214,14 @@ We study the relative effectiveness of contracts that are framed either in terms
 <p class="meta-italic">Journal of Development Economics, 2016</p>
 <p class="meta">
 
-<a href="javascript:unhide('grouplendingabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('grouplendingabstract', this);" aria-controls="grouplendingabstract" aria-expanded="false">[Abstract]</button>
 <a href="https://doi.org/10.1016/j.jdeveco.2014.11.006" target="_blank">[Published version]</a>
 <a href="pdfs/grouplending.pdf" target="_blank">[Ungated version]</a>
 
 <br>
 with <a href="http://www.trfetzer.com" target="_blank">Thiemo Fetzer</a> and <a href="http://personal.lse.ac.uk/ghatak/" target="_blank">Maitreesh Ghatak</a></p>
 
-    <div id="grouplendingabstract" class="hidden">
+    <div id="grouplendingabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
     This paper contrasts individual liability lending with and without groups to
 joint liability lending. We are motivated by an apparent shift away from the use of joint liability by microfinance institutions, combined with recent evidence that a) converting joint liability groups to individual liability groups did not affect repayment rates, and b) an intervention that increased social capital in individual liability borrowing groups led to improved repayment performance. First, we show that individual lending with or without groups may constitute a welfare improvement over joint liability, so long as borrowers have sufficient social capital to sustain mutual insurance. Second, we explore how the lender's lower transaction costs in group lending can encourage insurance by reducing the amount borrowers have to pay to bail one another out. Third, we discuss how group meetings might encourage insurance, either by increasing the incentive to invest in social capital, or because the time spent in meetings can facilitate setting up insurance arrangements. Finally, we perform a simple simulation exercise, evaluating quantitatively the welfare impacts of alternative forms of lending and how they relate to social capital.
@@ -231,12 +236,12 @@ joint liability lending. We are motivated by an apparent shift away from the use
 
 <p class="paper-title">Liquidity Constraints and Capital Allocation: Evidence from a Selective Trial with Ugandan Farmers (2025)</p>
 <p class="meta">
-<a href="javascript:unhide('ACAPabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('ACAPabstract', this);" aria-controls="ACAPabstract" aria-expanded="false">[Abstract]</button>
 <a href="pdfs/ACAP.pdf" target="_blank">[Latest version]</a>
 <a href="https://cepr.org/publications/dp21023" target="_blank">[CEPR WP]</a>
 <br>
 with <a href="http://perseus.iies.su.se/~kburc/" target="_blank">Konrad Burchardi</a>, <a href="https://sites.google.com/view/benedettalerva/home" target="_blank">Benedetta Lerva</a> and <a href="https://www.tripodistefano.com/" target="_blank">Stefano Tripodi</a></p>
-    <div id="ACAPabstract" class="hidden">
+    <div id="ACAPabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 Fertilizer adoption is persistently low among Sub-Saharan African farmers. Numerous governments have responded by introducing substantial price subsidies, but solving an allocation problem by introducing price distortions has unclear welfare implications. This paper presents results from a theory-guided experiment on fertilizer adoption among Ugandan farmers, finding that there exists a group of farmers with high returns to fertilizer, who would not adopt at the market price but can be induced to adopt with a 30% subsidy. Furthermore, consistent with adoption frictions due to liquidity constraints, the results indicate that a cash transfer is sufficient to eliminate the need for subsidies. These findings tie into broader ideas on second-best policymaking (Lipsey and Lancaster, 1956) and have important implications for fertilizer policy in Africa.
     </p>
@@ -244,7 +249,7 @@ Fertilizer adoption is persistently low among Sub-Saharan African farmers. Numer
 
 <p class="paper-title">How Much Should We Trust Observational Estimates? Accumulating Evidence Using Randomized Controlled Trials with Imperfect Compliance (2025)</p>
 <p class="meta">
-<a href="javascript:unhide('BiOMabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('BiOMabstract', this);" aria-controls="BiOMabstract" aria-expanded="false">[Abstract]</button>
 
 <a href="pdfs/Lalonde30.pdf" target="_blank">[Latest version]</a>
 
@@ -255,7 +260,7 @@ with <a href="https://twitter.com/DavidRhysBern" target="_blank">David Rhys Bern
 <a href="https://sites.google.com/view/jasminfliegner/" target="_blank">Jasmin Fliegner</a>,
 <a href="http://rolandrathelot.com" target="_blank">Roland Rathelot</a>
 </p>
-    <div id="BiOMabstract" class="hidden">
+    <div id="BiOMabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 The use of observational methods remains common in program evaluation. How much should we trust these studies, which lack clear identifying variation? We propose adjusting confidence intervals to incorporate the uncertainty due to observational bias. Using data from 53 development RCTs with imperfect compliance (ICRCTs), we estimate the parameters required to construct our confidence intervals, and illustrate their use. Our confidence intervals allow observational estimates to be used even when there are doubts about identification, have close to nominal coverage, lead to power gains in meta-analysis, and enable researchers to choose between RCT and observational methods based on power. A key takeaway of our findings is that observational methods have significantly lower power than suggested by conventional confidence intervals.
     </p>
@@ -264,7 +269,7 @@ The use of observational methods remains common in program evaluation. How much 
 <p class="paper-title">Implicit Preferences (2024)</p>
 
 <p class="meta">
-<a href="javascript:unhide('implicitabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('implicitabstract', this);" aria-controls="implicitabstract" aria-expanded="false">[Abstract]</button>
 
 <a href="pdfs/paper_implicit.pdf" target="_blank">[Latest version]</a>
 
@@ -275,7 +280,7 @@ The use of observational methods remains common in program evaluation. How much 
 with <a href="https://sites.google.com/site/tomcunningham/home" target="_blank">Tom Cunningham</a>
 </p>
 
-    <div id="implicitabstract" class="hidden">
+    <div id="implicitabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 Simple decisions can reveal two layers of preference. Suppose a hiring manager always chooses a woman over an identically-qualified man, but always chooses a man over a woman with different qualifications. Intuitively, these choices reveal an explicit preference for women, but an implicit preference for men. We define an implicit preference for an attribute as one whose influence increases whenever that attribute is mixed with others ("dilution"). We prove two representation theorems, and provide three two-layer decision-making models that exhibit implicit preferences. We give extensive guidance for applications, and present evidence of implicit risk preferences, implicit selfishness, and implicit discrimination.
 
@@ -284,7 +289,7 @@ Simple decisions can reveal two layers of preference. Suppose a hiring manager a
 
 <p class="paper-title">The Long-Run Effects of Psychotherapy on Depression, Beliefs, and Economic Outcomes (2023)</p>
 <p class="meta">
-<a href="javascript:unhide('LRDepressionabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('LRDepressionabstract', this);" aria-controls="LRDepressionabstract" aria-expanded="false">[Abstract]</button>
 
 <a href="https://jondequidt.com/pdfs/psychotherapy-depression.pdf" target="_blank">[Latest version]</a>
 <a href="https://www.nber.org/papers/w30011" target="_blank">[NBER WP]</a>
@@ -298,7 +303,7 @@ with <a href="https://sangath.in/our-people/bhargav-bhat/" target="_blank">Bharg
 <a href="https://economics.mit.edu/grad/vautrey" target="_blank">Pierre-Luc Vautrey</a>
 </p>
 
-    <div id="LRDepressionabstract" class="hidden">
+    <div id="LRDepressionabstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 We revisit two clinical trials that randomized depressed adults in India (n=775) to a brief course of psychotherapy or a control condition. Four to five years later, the treatment group was 11 percentage points less likely to be depressed than the control group. The more effective intervention averted 9 months of depression on average over five years and cost only $66 per recipient. Therapy changed people's beliefs about themselves in three ways. First, it reduced their likelihood of seeing themselves as a failure or feeling bad about themselves. Second, when faced with a novel work opportunity, therapy reduced over-optimistic belief updating in response to feedback and thus reduced overconfidence. Third, it increased self-assessed levels of patience and altruism. Therapy did not increase levels of employment or consumption, possibly because of other constraints on employment in the largely female study sample.
     </p>
@@ -306,7 +311,7 @@ We revisit two clinical trials that randomized depressed adults in India (n=775)
 
 <p class="paper-title">Market Design for Land Trade: Evidence from Uganda and Kenya (2024)</p>
 <p class="meta">
-<a href="javascript:unhide('kenyalandlababstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('kenyalandlababstract', this);" aria-controls="kenyalandlababstract" aria-expanded="false">[Abstract]</button>
 
 <a href="pdfs/LandTrade.pdf">[Latest version]</a>
 <a href="pdfs/LandTradeSlides.pdf">[Slides]</a>
@@ -315,7 +320,7 @@ We revisit two clinical trials that randomized depressed adults in India (n=775)
 with <a href="https://sites.google.com/site/gharadbryan/" target="_blank">Gharad Bryan</a>, <a href="https://marijosilvaphotography.com/Academic-profile-Mariajose-Silva-Vargas" target="_blank">Mariajose Silva Vargas</a>, <a href="http://www.tomwilkening.com" target="_blank">Tom Wilkening</a> and <a href="http://bmmlab.webfactional.com/team/nitin/" target="_blank">Nitin Yadav</a>
 </p>
 
-    <div id="kenyalandlababstract" class="hidden">
+    <div id="kenyalandlababstract" class="hidden" aria-hidden="true">
     <p class="abstract">
 Agriculture in low-income countries is characterized by misallocation of land across farmers and fragmentation--the separation of farms into smaller plots--which increases costs and limits the use of increasing returns technologies. We argue that a carefully-designed set of trading rules can address these problems, and test this using two lab-in-the-field experiments with smallholder farmers in Uganda and Kenya. First, with survey data, we document that agricultural land markets are thin, prone to exposure risk, and suffer from coordination frictions. These characteristics typically hamper decentralized trade. Market design may improve outcomes by thickening markets, finding chains, and enforcing conditional contracts, but right-in-theory designs may be unfamiliar and hard for farmers to understand. Our first experiment, conducted in Uganda, simulates status quo land markets and confirms severe inefficiency. In a second phase of the experiment, we find that a centralization intervention can eliminate direct exposure losses that arise through trade and promote consolidation but does not reduce misallocation. We then test whether designs that are more tailored to the land trade problem, but potentially harder to understand, can further improve outcomes. Our second experiment, in Kenya, finds that a computerized package exchange, which allows traders to specify a sequence of conditional trades as a single transaction, performs particularly well. Our results suggest that improved market design can reduce frictions and lead to important productivity gains among smallholder farmers, and may help unlock gains from complementary programs like titling.
     </p>
@@ -325,7 +330,7 @@ Agriculture in low-income countries is characterized by misallocation of land ac
 
 <p class="meta">
 
-<a href="javascript:unhide('depressionabstract');">[Abstract]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('depressionabstract', this);" aria-controls="depressionabstract" aria-expanded="false">[Abstract]</button>
 
 <a href="http://www.nber.org/papers/w22973" target="_blank">[NBER working paper]</a>
 <br>
@@ -333,8 +338,10 @@ with <a href="https://johanneshaushofer.com/" target="_blank">Johannes Haushofer
 
 </p>
 
-<div id="depressionabstract" class="hidden">
+<div id="depressionabstract" class="hidden" aria-hidden="true">
 <p class="abstract">Major depressive disorder (MDD) is one of the most prevalent mental illnesses worldwide. Existing evidence suggests that it has both economic causes and consequences, such as unemployment. However, depression has not received significant attention in the economics literature. In this paper, we present a simple model which predicts the core symptoms of depression from economic primitives, i.e. beliefs. Specifically, we show that when exogenous shocks cause an agent to have pessimistic beliefs about the returns to her effort, this agent will exhibit depressive symptoms such undereating or overeating, insomnia or hypersomnia, and a decrease in labor supply. When these effects are strong enough, they can generate a poverty trap. We present descriptive evidence that illustrates the predicted relationships. </p>
+
+</div>
 
 </div>
 
@@ -355,12 +362,12 @@ Forthcoming in Encyclopedia of Experimental Social Science, editor Bereket Kebed
 <p class="paper-title">Experimenter Demand Effects</p>
 <p class="meta-italic">in Handbook of Research Methods and Applications in Experimental Economics, 2019</p>
 <p class="meta">
-<a href="javascript:unhide('demandchapterabstract');">[Abstract]</a> <a href="https://doi.org/10.4337/9781788110563" target="_blank">[Published version]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('demandchapterabstract', this);" aria-controls="demandchapterabstract" aria-expanded="false">[Abstract]</button> <a href="https://doi.org/10.4337/9781788110563" target="_blank">[Published version]</a>
 <a href="pdfs/EDE_021618.pdf" target="_blank">[Ungated version]</a>
 <br>
 with <a href="http://www.pitt.edu/~vester/">Lise Vesterlund</a> and <a href="http://www.pitt.edu/~alistair/">Alistair Wilson</a></p>
 
-<div id="demandchapterabstract" class="hidden">
+<div id="demandchapterabstract" class="hidden" aria-hidden="true">
 <p class="abstract">A study's internal and external validity is threatened by experimenter demand effects. This threat is taken seriously by experimental economists, who have developed a number of best practices to suppress or eliminate the potential role of such effects. We outline these best practices and review the literature to show that they are followed in the vast majority of published work. This adherence to best practice likely contributes to the limited evidence of experimenter demand effects uncovered in the literature. Specifically, we are not aware of examples where demand effects have been shown to influence the qualitative inference from a study. While good design goes a long way towards reducing the potential for experimenter demand effects, a complementary option, presented in our final section, is to derive bounds on the effect.</p>
 </div>
 
@@ -370,13 +377,13 @@ with <a href="http://www.pitt.edu/~vester/">Lise Vesterlund</a> and <a href="htt
 
 <p class="meta">
 
-<a href="javascript:unhide('depressionchapterabstract');">[Abstract]</a> <a href="https://www.press.uchicago.edu/ucp/books/book/chicago/E/bo28559644.html">[Published version]</a> <a href="https://www.dropbox.com/s/5l32zx9flhapmi2/DeQuidt_Haushofer_Depression_Agenda.pdf?raw=1" target="_blank">[Ungated version]</a>
+<button class="abstract-toggle" type="button" onclick="unhide('depressionchapterabstract', this);" aria-controls="depressionchapterabstract" aria-expanded="false">[Abstract]</button> <a href="https://www.press.uchicago.edu/ucp/books/book/chicago/E/bo28559644.html">[Published version]</a> <a href="https://www.dropbox.com/s/5l32zx9flhapmi2/DeQuidt_Haushofer_Depression_Agenda.pdf?raw=1" target="_blank">[Ungated version]</a>
 <br>
 with <a href="https://johanneshaushofer.com/" target="_blank">Johannes Haushofer</a>
 
 </p>
 
-<div id="depressionchapterabstract" class="hidden">
+<div id="depressionchapterabstract" class="hidden" aria-hidden="true">
 <p class="abstract">Major depressive disorder (MDD) is one of the most prevalent mental illnesses worldwide. Existing evidence suggests that it has both economic causes and consequences, such as unemployment. However, depression has not received significant attention in the economics literature, and existing work is almost entirely empirical. We see great potential for traditional, theoretical economic analysis to both develop new insights about depression, and to form new connections to other areas of economics. In this paper, we begin with an overview of the canonical symptoms of depression, identifying a set of key facts that lend themselves well to economic analysis. We illustrate these facts with descriptive analysis of data from Indonesia. We then discuss what we see as fruitful avenues for new theoretical work, building on those facts.</p>
 </div>
 
@@ -384,11 +391,11 @@ with <a href="https://johanneshaushofer.com/" target="_blank">Johannes Haushofer
 
 <p class="meta-italic">Annals of Public and Cooperative Economics, Centennial Issue, 2018</p>
 
-<p class="meta"><a href="javascript:unhide('isthecreditworthitabstract');">[Abstract]</a> <a href="http://onlinelibrary.wiley.com/doi/10.1111/apce.12189/epdf" target="_blank">[Published version]</a> <a href="pdfs/WDR-MF.pdf" target="_blank">[Ungated version]</a>
+<p class="meta"><button class="abstract-toggle" type="button" onclick="unhide('isthecreditworthitabstract', this);" aria-controls="isthecreditworthitabstract" aria-expanded="false">[Abstract]</button> <a href="http://onlinelibrary.wiley.com/doi/10.1111/apce.12189/epdf" target="_blank">[Published version]</a> <a href="pdfs/WDR-MF.pdf" target="_blank">[Ungated version]</a>
 <br>
 with <a href="http://personal.lse.ac.uk/ghatak/" target="_blank">Maitreesh Ghatak</a></p>
 
-<div id="isthecreditworthitabstract" class="hidden">
+<div id="isthecreditworthitabstract" class="hidden" aria-hidden="true">
 <p class="abstract">The bulk of the literature on microcredit has focused on either not-for-profit lenders or assumes a perfectly competitive, zero-profit market equilibrium. Yet the market has experienced a significant shift toward for-profit lending and the assumptions of perfect competition are likely to be too strong in many locations. We review the state of the literature on for-profit lending in microcredit, consider its implications for both conventionally 'rational' borrowers and for borrowers with behavioral biases, and point out directions for future research.</p>
 </div>
 </div>
@@ -447,8 +454,6 @@ with <a href="http://www.trfetzer.com" target="_blank">Thiemo Fetzer</a> and <a 
 </div>
 
 <div id="lower"></div>
-
-</div>
 
 </div>
 
